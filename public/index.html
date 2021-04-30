@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="cat">
+        <button onclick="btnListarCategorias()">Listar categorias</button>
+    </div>
+    <div id="rec">
+        <button onclick="btnListarReceitas()">Listar receitas</button>
+    </div>
+    <div id="cad_rec">
+        <p>Nome: <input id="nome"></p>
+        <p>Ingredientes: <input id="ing"></p>
+        <p>Preparo: <input id="prep"></p>
+        <p> Categoria: 
+            <select id="l_cat">
+                <option value="Prato">Prato</option>
+                <option value="Sobremesa">Sobremesa</option>
+                <option value="Bebida">Bebida</option>
+              </select>
+        </p>
+        <button onclick="btnCadastrarReceita()">Cadastrar receita</button>
+    </div>
+    <div id="del_rec">
+        <p>ID da receita: <input id="id_rec"></p>
+        <button onclick="btnDeletarReceita()">Deletar receita</button>
+    </div>
+    <script>
+        let baseUrl = "https://014702e0b045.ngrok.io/v1";
+        async function listarCategorias() {
+            return new Promise(async (resolve, reject) => {
+                let result = await axios.get(`${baseUrl}/categorias`);
+                resolve(result.data);
+            });
+        }
+
+        async function cadastrarReceita(nome, ingredientes, preparo, categoria) {
+            return new Promise(async (resolve, reject) => {
+                let corpo = {
+                    nome: nome,
+                    ingredientes: ingredientes,
+                    preparo: preparo,
+                    categoria: categoria
+                };
+                let result = await axios.post(`${baseUrl}/receitas`, JSON.stringify(corpo));
+                resolve(result.data);
+            });
+        }
+
+        async function listarReceitas() {
+            return new Promise(async (resolve, reject) => {
+                let result = await axios.get(`${baseUrl}/receitas`);
+                resolve(result.data);
+            });
+        }
+
+        async function deletarReceita(id_rec) {
+            return new Promise(async (resolve, reject) => {
+                let corpo = {
+                    id_rec: id_rec
+                };
+                let result = await axios.post(`${baseUrl}/del-receitas`, JSON.stringify(corpo));
+                resolve(result.data);
+            });
+
+        }
+        function btnListarCategorias() {
+            listarCategorias().then((res) => {
+                let doc = document.getElementById("cat");
+                doc.innerHTML += "<h3>Categorias</h3>";
+                doc.innerHTML += JSON.stringify(res);
+            });
+        }
+        function btnListarReceitas() {
+            listarReceitas().then((res) => {
+                let doc = document.getElementById("rec");
+                doc.innerHTML += "<h3>Receitas</h3>";
+                doc.innerHTML += JSON.stringify(res);
+            });
+        }
+        function btnCadastrarReceita() {
+            let doc = document.getElementById("cad_rec");
+            let nome = document.getElementById("nome").value;
+            let ing = document.getElementById("ing").value;
+            let prep = document.getElementById("prep").value;
+            let l_cat = document.getElementById("l_cat").value;
+            cadastrarReceita(nome, ing, prep, l_cat).then((res) => {
+                doc.innerHTML += JSON.stringify(res);
+            });
+        }
+
+        function btnDeletarReceita() {
+            let doc = document.getElementById("del_rec");
+            let id_rec = Number(document.getElementById("id_rec").value);
+            deletarReceita(id_rec).then((res) => {
+                doc.innerHTML += JSON.stringify(res);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

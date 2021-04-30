@@ -66,7 +66,7 @@ app = prehook corsHeader $
       addReceita <- liftIO (criarReceita (nome theReceita) (ingredientes theReceita) (preparo theReceita) (categoria theReceita))
       json (object ["code_status".= message])
     
-    delete "v1/receitas" $ do
+    post "v1/del-receitas" $ do
       theReceita <- jsonBody' :: ApiAction ReceitaDel
       delReceita <- liftIO (deletarReceita (id_rec theReceita))
       json (object ["code_status".= message2])
