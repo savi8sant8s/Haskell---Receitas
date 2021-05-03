@@ -14,4 +14,4 @@ Ferramentas necessárias:
 3. Simple-SQLite (biblioteca);
 4. NicePage (gerador de sites);
 5. Axios e Sweet Alert (CDNs);
-5. DB Browser for SQLite (software que apresenta e permite realizar operações em um banco de dados SQLite)
+5. DB Browser for SQLite (software para manipular bancos SQLite).
