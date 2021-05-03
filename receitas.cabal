@@ -6,11 +6,11 @@ cabal-version: 1.12
 --
 -- hash: fe31df61ac1c26ecd6bee3e26237497373dbf656fcdbfad111d30d14462f30fe
 
-name:           exemple
+name:           receitas
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/exemple#readme>
-homepage:       https://github.com/githubuser/exemple#readme
-bug-reports:    https://github.com/githubuser/exemple/issues
+description:    Please see the README on GitHub at <https://github.com/githubuser/receitas#readme>
+homepage:       https://github.com/githubuser/receitas#readme
+bug-reports:    https://github.com/githubuser/receitas/issues
 author:         Author name here
 maintainer:     example@example.com
 copyright:      2021 Author name here
@@ -23,29 +23,29 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/exemple
+  location: https://github.com/githubuser/receitas
 
 library
   exposed-modules:
       Lib
   other-modules:
-      Paths_exemple
+      Paths_receitas
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
   default-language: Haskell2010
 
-executable exemple-exe
+executable receitas-exe
   main-is: Main.hs
   other-modules:
-      Paths_exemple, Bd
+      Paths_receitas, Bd
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , exemple
+    , receitas
     , aeson
     , Spock
     , text
@@ -54,15 +54,15 @@ executable exemple-exe
     , mtl
   default-language: Haskell2010
 
-test-suite exemple-test
+test-suite receitas-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_exemple
+      Paths_receitas
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , exemple
+    , receitas
   default-language: Haskell2010

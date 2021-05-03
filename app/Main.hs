@@ -1,6 +1,5 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -Wno-deferred-type-errors #-}
 
 import Web.Spock
 import Web.Spock.Config
@@ -73,11 +72,7 @@ app = prehook corsHeader $
 
     get "v1/receitas" $ do
       receitas <- liftIO listarReceitas
-      json Receitas {receitas = receitas}
-      
-    get "v1/categorias" $ do
-      json (object ["categorias".= categorias])    
+      json Receitas {receitas = receitas}  
 
-  where categorias = [pack "Prato", pack "Sobremesa", pack "Bebida"]
-        message = pack "Receita cadastrada com sucesso!"
+  where message = pack "Receita cadastrada com sucesso!"
         message2 = pack "Receita deletada com sucesso!"

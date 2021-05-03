@@ -1,3 +1,3 @@
-# Changelog for exemple
+# Changelog for receitas
 
 ## Unreleased changes

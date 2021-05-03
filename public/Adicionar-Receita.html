@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="pt-br">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="MINHAS R​ECEITAS">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Adicionar Receita</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Adicionar-Receita.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 3.13.2, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Minhas Receitas",
+		"url": "index.html",
+		"logo": "images/logo.png"
+}</script>
+    <meta property="og:title" content="Adicionar Receita">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+    <link rel="canonical" href="index.html">
+    <meta property="og:url" content="index.html">
+  </head>
+  <body class="u-body u-image u-overlap u-overlap-transparent" style="background-position: 50% 50%; background-image: url(&quot;images/fundo1.png&quot;);"><header class="u-clearfix u-header u-header" id="sec-588a" data-image-width="1170" data-image-height="827"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="Pagina-Inicial.html" data-page-id="995310836" class="u-image u-image-circle u-logo u-image-1" data-image-width="275" data-image-height="292" title="Pagina Inicial">
+          <img src="images/logo.png" class="u-logo-image u-logo-image-1" data-image-width="64">
+        </a>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-position="Menu">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</symbol>
+</defs></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-custom-color-3 u-text-hover-custom-color-3" href="Pagina-Inicial.html" style="padding: 10px 20px;">Página Inicial</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-custom-color-3 u-text-hover-custom-color-3" href="Categorias.html" style="padding: 10px 20px;">Categorias</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pagina-Inicial.html" style="padding: 10px 20px;">Página Inicial</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Categorias.html" style="padding: 10px 20px;">Categorias</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-align-left u-clearfix u-image u-section-1" data-image-width="1170" data-image-height="827" id="sec-a716">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-text u-text-custom-color-3 u-text-1">Adicionar Receita</h2>
+        <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-form u-form-1">
+          <form onsubmit="btnCadastrarReceita()" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" name="form">
+            <div class="u-form-group u-form-name">
+              <label for="name-3b9a" class="u-label u-text-custom-color-3 u-label-1">NOME DA RECEITA</label>
+              <input type="text" id="nome" name="nomedareceita" class="u-border-2 u-border-custom-color-3 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-text-custom-color-3 u-input-1" required="" placeholder="EX.: TORTA DE FRANGO">
+            </div>
+            <div class="u-form-group u-form-select u-form-group-2">
+              <label for="select-f9d8" class="u-label u-text-custom-color-3 u-label-2">CATEGORIA</label>
+              <div class="u-form-select-wrapper">
+                <select required="" id="l_cat" name="Categoria" class="u-border-2 u-border-custom-color-3 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-text-custom-color-3 u-input-2">
+                  <option value="Prato">Prato</option>
+                  <option value="Sobremesa">Sobremesa</option>
+                  <option value="Bebida">Bebida</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-group-3">
+              <label for="textarea-5e47" class="u-label u-text-custom-color-3 u-label-3">INGREDIENTES</label>
+              <textarea required="" placeholder="EX.: 500 GRAMAS DE PEITO DE FRANGO..." rows="4" cols="50" id="ing" name="ingredientes" class="u-border-2 u-border-custom-color-3 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-text-custom-color-3 u-input-3"></textarea>
+            </div>
+            <div class="u-form-group u-form-group-4">
+              <label for="textarea-796d" class="u-label u-text-custom-color-3 u-label-4">MODO DE PREPARO</label>
+              <textarea required="" placeholder="EX.: COZINHE O PEITO DE FRANGO NO CALDO..." rows="4" cols="50" id="prep" name="mododepreparo" class="u-border-2 u-border-custom-color-3 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-text-custom-color-3 u-input-4"></textarea>
+            </div>
+            <div class="u-align-center u-form-group u-form-submit">
+              <a class="u-border-2 u-border-custom-color-3 u-border-hover-custom-color-5 u-btn u-btn-round u-btn-submit u-button-style u-hover-custom-color-5 u-none u-radius-50 u-text-custom-color-3 u-text-hover-white u-btn-1">FINALIZAR<br>
+              </a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-left u-clearfix u-footer u-image u-footer" id="sec-bf2f" data-image-width="1170" data-image-height="827"><div class="u-clearfix u-sheet u-sheet-1"></div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Free Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+    <script>
+      let baseUrl = "https://479235c86bd8.ngrok.io/v1";
+      async function cadastrarReceita(nome, ingredientes, preparo, categoria) {
+            return new Promise(async (resolve, reject) => {
+                let corpo = {
+                    nome: nome,
+                    ingredientes: ingredientes,
+                    preparo: preparo,
+                    categoria: categoria
+                };
+                let result = await axios.post(`${baseUrl}/receitas`, JSON.stringify(corpo));
+                resolve(result.data);
+            });
+        }
+        function btnCadastrarReceita() {
+            let nome = document.getElementById("nome").value;
+            let ing = document.getElementById("ing").value;
+            let prep = document.getElementById("prep").value;
+            let l_cat = document.getElementById("l_cat").value;
+            cadastrarReceita(nome, ing, prep, l_cat).then((res) => {
+              swal("Sucesso", res.code_status, "success");
+            });
+        }
+    </script>
+  </body>
+</html>

@@ -32,13 +32,13 @@ instance ToRow Receita where
 iniciarBD :: IO ()
 iniciarBD = do
   conn <- open "receitas.db"
-  execute_ conn "CREATE TABLE IF NOT EXISTS receitas (id_rec INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome_rec TEXT NOT NULL UNIQUE, ingredientes BLOB NOT NULL, preparo TEXT NOT NULL, categorias TEXT NOT NULL)"
+  execute_ conn "CREATE TABLE IF NOT EXISTS receitas (id_rec INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome_rec TEXT NOT NULL UNIQUE, ingredientes BLOB NOT NULL, preparo TEXT NOT NULL, categoria TEXT NOT NULL)"
   close conn
 
 criarReceita :: Text -> Text -> Text -> Text -> IO ()
-criarReceita nome_rec ingredientes preparo categorias = do
+criarReceita nome_rec ingredientes preparo categoria = do
   conn <- open "receitas.db"
-  execute conn "INSERT OR IGNORE INTO receitas (nome_rec, ingredientes, preparo, categorias) VALUES (?,?,?,?)" (Receita 0 nome_rec ingredientes preparo categorias)
+  execute conn "INSERT OR IGNORE INTO receitas (nome_rec, ingredientes, preparo, categoria) VALUES (?,?,?,?)" (Receita 0 nome_rec ingredientes preparo categoria)
   close conn
 
 listarReceitas :: IO [Receita]
@@ -54,8 +54,3 @@ deletarReceita id_rec = do
   conn <- open "receitas.db"
   execute conn "DELETE FROM receitas WHERE id_rec = ?" (Only (id_rec :: Int64))
   close conn
-
---main = do
- -- a <- liftIO iniciarBD
- -- b <- liftIO (criarReceita (pack "vitamina") (pack "banana leite") (pack "Bebida"))
- --listarReceitas
